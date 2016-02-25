@@ -1,0 +1,72 @@
+
+
+snippet nm "node module boilerplate" b
+'use strict';
+/*jshint node:true, expr:true*/
+
+module.exports = { };
+endsnippet
+
+snippet mocha "mocha test boilerplate" b
+'use strict';
+/*jshint node:true, mocha:true, expr:true*/
+
+describe('$1', function() {
+	${VISUAL}
+});
+
+endsnippet
+
+snippet re "require a node module" b
+var $1 = require('$1');
+
+endsnippet
+
+snippet req "require a node module with differing variable" b
+var $1 = require('$2');
+
+endsnippet
+
+snippet des "mocha describe" b
+describe('$1', function() {
+	${VISUAL}
+});
+endsnippet
+
+snippet it "mocha it" b
+it('$1', function() {
+	$2
+});
+endsnippet
+
+snippet b4 "mocha before" b
+before(function() {
+	$1
+});
+endsnippet
+
+snippet a4 "mocha after" b
+after(function() {
+	$1
+});
+endsnippet
+
+snippet b4e "mocha beforeEach" b
+beforeEach(function() {
+	$1
+});
+endsnippet
+
+snippet a4e "mocha afterEach" b
+afterEach(function() {
+	$1
+});
+endsnippet
+
+snippet ex "chai expect"
+expect(${VISUAL}).to.be.true;
+endsnippet
+
+snippet mochaopt "mocha options"
+test/**/*.test.js --reporter spec --ui bdd
+endsnippet
