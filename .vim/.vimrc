@@ -266,10 +266,7 @@ nnoremap shiftwidthm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 
 " Buffers
-"noremap ]<Tab> :bn<CR>
-"noremap [<Tab> :bp<CR>
-"noremap <Tab> :buffers<CR>:buffer<Space>
-
+noremap <Leader><Tab> :buffers<CR>:buffer<Space>
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
@@ -336,4 +333,7 @@ set timeoutlen=1000 ttimeoutlen=10
 " search & replace word under cursor
 noremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" Insert line(s) above/below
+nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
