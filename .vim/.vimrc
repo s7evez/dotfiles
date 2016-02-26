@@ -51,28 +51,28 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Other plugins
-Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
+Bundle 'kien/ctrlp.vim'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'matze/vim-move'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'troydm/easybuffer.vim'
-Bundle 'bitc/vim-bad-whitespace'
-Bundle 'kien/ctrlp.vim'
+Plugin 'AndrewRadev/sideways.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'SirVer/ultisnips'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'bkad/CamelCaseMotion'
+Plugin 'elzr/vim-json'
+Plugin 'honza/vim-snippets'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'mhinz/vim-startify'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Raimondi/delimitMate'
-Plugin 'elzr/vim-json'
-Plugin 'AndrewRadev/sideways.vim'
-Plugin 'mhinz/vim-startify'
-Plugin 'tpope/vim-surround'
 " Required for YouCompleteMe
 "   sudo apt-get install build-essential cmake
 "   sudo apt-get install python-dev
@@ -241,6 +241,7 @@ set nostartofline
 
 " no sound, just flash the screen
 set visualbell
+
 " disable beeping
 set t_vb=
 
@@ -263,8 +264,14 @@ nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
 nnoremap shiftwidthm  :tabm<Space>
 nnoremap td  :tabclose<CR>
-nnoremap H gT
-nnoremap L gt
+
+" Buffers
+"noremap ]<Tab> :bn<CR>
+"noremap [<Tab> :bp<CR>
+"noremap <Tab> :buffers<CR>:buffer<Space>
+
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
 
 " disable folding
 set nofoldenable
@@ -327,6 +334,6 @@ nnoremap <c-l> :SidewaysRight<cr>
 set timeoutlen=1000 ttimeoutlen=10
 
 " search & replace word under cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+noremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 
