@@ -24,7 +24,8 @@ else
 endif
 
 " pick a color scheme
-colorscheme hybrid
+"colorscheme hybrid
+colorscheme last256
 " turn on syntax highlighting
 syntax on
 
