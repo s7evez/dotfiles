@@ -68,6 +68,7 @@ Plugin 'elzr/vim-json'
 Plugin 'honza/vim-snippets'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mhinz/vim-startify'
+Plugin 'mileszs/ack.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
 Plugin 'tpope/vim-fugitive'
@@ -102,11 +103,7 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 
 " Airline Settings
-""  if has('gui_running')
-    let g:airline_theme='powerlineish'
-""  else
-""    let g:airline_theme='molokai'
-""  endif
+let g:airline_theme='powerlineish'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -133,6 +130,13 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 " CtrlP
 let g:ctrlp_cmd = 'CtrlPMixed'
+
+" Ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+" Open a new tab and search for something
+nmap <leader>a :tab split<CR>:Ack ""<Left>
+" Immediately search for the word under the cursor in a new tab
+nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
 
 " prevent vimjson from concealing characters
 let g:vim_json_syntax_conceal = 0
