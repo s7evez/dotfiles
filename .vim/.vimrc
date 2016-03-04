@@ -13,6 +13,7 @@ if has('gui_running')
   set lines=999 columns=999
   if has('unix')
     set guifont=Segoe\ UI\ Mono\ 10
+    colorscheme last256
   else
     set guifont=Segoe_UI_Mono:h12:cANSI
   endif
@@ -21,11 +22,9 @@ else
     set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
+    colorscheme hybrid
 endif
 
-" pick a color scheme
-"colorscheme hybrid
-colorscheme last256
 " turn on syntax highlighting
 syntax on
 
