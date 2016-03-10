@@ -68,6 +68,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mhinz/vim-startify'
 Plugin 'mileszs/ack.vim'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
 Plugin 'tpope/vim-fugitive'
@@ -137,6 +138,9 @@ nmap <leader>a :tab split<CR>:Ack ""<Left>
 " Immediately search for the word under the cursor in a new tab
 nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
 
+" grep text under cursor
+map <leader>g :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+
 " prevent vimjson from concealing characters
 let g:vim_json_syntax_conceal = 0
 
@@ -200,10 +204,10 @@ set confirm
 set expandtab
 
 " number of characters to shift with '>' or '<'
-set shiftwidth=2
+set shiftwidth=4
 
 " number of columns per tab
-set tabstop=2
+set tabstop=4
 
 " better indentions
 set smartindent
@@ -307,9 +311,6 @@ augroup END
 " toggle spellcheck
 map <F7> :setlocal spell! spelllang=en_us<CR>
 
-" grep text under cursor
-map <leader>vv :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-
 " move through grep results
 map [q :cprevious<CR>
 map ]q :cnext<CR>
@@ -318,6 +319,9 @@ map ]Q :clast<CR>
 
 " EasyBuffer mapping
 map <Leader>m :EasyBuffer<CR>
+
+" Toggle Line Wrap
+map <Leader>w :set wrap!<CR>
 
 " vim-move mapppings
 let g:move_map_keys = 0
