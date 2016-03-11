@@ -10,13 +10,14 @@ if has('gui_running')
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
   set guioptions-=M
-  set lines=999 columns=999
+  set lines=50 columns=132
   if has('unix')
     set guifont=Segoe\ UI\ Mono\ 10
     colorscheme last256
   else
     set guifont=Segoe_UI_Mono:h12:cANSI
   endif
+  colorscheme hybrid
 else
     set term=xterm
     set t_Co=256
@@ -308,6 +309,13 @@ augroup gitCommitEditMsg
     \ endif
 augroup END
 
+augroup autocom
+    autocmd!
+    " Hack to prevent YCM from leaving Tern/NodeJS orphans
+    autocmd VimLeave * 
+      \ YcmCompleter StopServer
+augroup END
+
 " toggle spellcheck
 map <F7> :setlocal spell! spelllang=en_us<CR>
 
@@ -344,4 +352,8 @@ noremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Insert line(s) above/below
 nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+" Convert Markdown to HTML
+nmap <leader>md :%!Markdown.pl --html4tags <cr>
+
 
