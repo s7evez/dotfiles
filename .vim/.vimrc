@@ -15,7 +15,7 @@ if has('gui_running')
     set guifont=Segoe\ UI\ Mono\ 10
     colorscheme last256
   else
-    set guifont=Segoe_UI_Mono:h12:cANSI
+    set guifont=Segoe_UI_Mono:h10:cANSI
   endif
   colorscheme hybrid
 else
@@ -133,7 +133,12 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Ack
+if has('windows')
+let g:ackprg="ack -H --nocolor --nogroup --column"
+endif
+if has('unix')
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+endif
 " Open a new tab and search for something
 nmap <leader>a :tab split<CR>:Ack ""<Left>
 " Immediately search for the word under the cursor in a new tab
