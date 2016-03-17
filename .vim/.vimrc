@@ -284,8 +284,10 @@ noremap <Leader><Tab> :buffers<CR>:buffer<Space>
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
-" disable folding
-set nofoldenable
+" Folding
+set foldmethod=syntax
+" Unfold all by default
+autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
 
 " auto load vimrc changes
 augroup myvimrc
