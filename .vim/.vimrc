@@ -262,9 +262,14 @@ set t_vb=
 "enable mouse in terminal
 set mouse=a
 
+" turn on wrap for txt files
+au BufNewFile,BufRead *.txt set wrap
+
 " remap movement to move by column layout
 nnoremap j gj
 nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
 
 " Strips whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>" tab key bindings
