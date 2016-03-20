@@ -65,6 +65,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'elzr/vim-json'
+Plugin 'junegunn/goyo.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mhinz/vim-startify'
@@ -97,6 +98,24 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 
 let mapleader=","
+ 
+" Toggle Goyo
+nmap <Leader>z :Goyo<CR>
+
+let g:goyo_width = 160
+let g:goyo_height = 98
+
+function! s:goyo_enter()
+  set cursorline!
+  set nolist linebreak breakat&vim
+endfunction
+
+function! s:goyo_leave()
+  set cursorline
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " NERDTree Settings
 nmap <leader>n :NERDTreeToggle<CR>
@@ -143,9 +162,6 @@ endif
 nmap <leader>a :tab split<CR>:Ack ""<Left>
 " Immediately search for the word under the cursor in a new tab
 nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
-
-" grep text under cursor
-map <leader>g :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " prevent vimjson from concealing characters
 let g:vim_json_syntax_conceal = 0
@@ -367,5 +383,4 @@ nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " Convert Markdown to HTML
 nmap <leader>md :%!Markdown.pl --html4tags <cr>
-
 
