@@ -62,7 +62,7 @@ Bundle 'troydm/easybuffer.vim'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'elzr/vim-json'
 Plugin 'junegunn/goyo.vim'
@@ -70,7 +70,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mhinz/vim-startify'
 Plugin 'mileszs/ack.vim'
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
 Plugin 'tpope/vim-fugitive'
@@ -140,6 +140,7 @@ endif
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -278,6 +279,9 @@ set t_vb=
 "enable mouse in terminal
 set mouse=a
 
+" Copy unnamed to clipboard by default
+set clipboard=unnamed
+
 " turn on wrap for txt files
 au BufNewFile,BufRead *.txt set wrap
 
@@ -356,7 +360,7 @@ map ]Q :clast<CR>
 " EasyBuffer mapping
 map <Leader>m :EasyBuffer<CR>
 
-" Toggle Line Wrap
+" Toggle Line WRAP
 map <Leader>w :set wrap!<CR>
 
 " vim-move mapppings
