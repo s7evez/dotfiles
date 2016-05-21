@@ -227,14 +227,16 @@ set wildchar=<Tab>
 set wildmode=longest:full,full
 set wildcharm=<C-Z>
 
+" scroll horizontally by single chars
+set sidescroll=1
+
 " show information in the bottom line
 set showcmd
 
 " highlight all search matches
 set hlsearch
 " space to turn off highlighting
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-:nnoremap <silent> <leader>m :nohlsearch<Bar>:echo<CR>
+:nnoremap <silent> <leader>mc :nohlsearch<Bar>:echo<CR>
 
 " start searching with each typed character
 set incsearch
@@ -257,8 +259,10 @@ set visualbell
 " disable beeping
 set t_vb=
 
-"enable mouse in terminal
-set mouse=a
+if has('unix')
+    "enable mouse in terminal
+    set mouse=a
+endif
 
 " Copy unnamed to clipboard by default
 set clipboard=unnamed
