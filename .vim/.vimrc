@@ -58,19 +58,16 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'matze/vim-move'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
-Bundle 'troydm/easybuffer.vim'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
-"Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'elzr/vim-json'
-Plugin 'junegunn/goyo.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mhinz/vim-startify'
 Plugin 'mileszs/ack.vim'
-"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
 Plugin 'tpope/vim-fugitive'
@@ -97,26 +94,8 @@ filetype plugin indent on    " required
 " auto-approve removal
 " see :h vundle for more details or wiki for FAQ
 
-let mapleader=","
+let mapleader="\ "
  
-" Toggle Goyo
-nmap <Leader>z :Goyo<CR>
-
-let g:goyo_width = 160
-let g:goyo_height = 98
-
-function! s:goyo_enter()
-  set cursorline!
-  set nolist linebreak breakat&vim
-endfunction
-
-function! s:goyo_leave()
-  set cursorline
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 " NERDTree Settings
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
@@ -255,6 +234,7 @@ set showcmd
 set hlsearch
 " space to turn off highlighting
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+:nnoremap <silent> <leader>m :nohlsearch<Bar>:echo<CR>
 
 " start searching with each typed character
 set incsearch
@@ -357,9 +337,6 @@ map [q :cprevious<CR>
 map ]q :cnext<CR>
 map [Q :cfirst<CR>
 map ]Q :clast<CR>
-
-" EasyBuffer mapping
-map <Leader>m :EasyBuffer<CR>
 
 " Toggle Line WRAP
 map <Leader>w :set wrap!<CR>
